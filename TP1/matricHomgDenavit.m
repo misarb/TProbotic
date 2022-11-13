@@ -1,8 +1,11 @@
 %% Transformation Matrices
-function [matrice] = matricHomgDenavit(mR,t)
+function [matrice] = matricHomgDenavit(theta,alphm,a,d)
 
 
-matrice = [mR(1,1) mR(1,2) mR(1,3) t(1) ;mR(2,1) mR(2,2) mR(2,3) t(2) ;mR(3,1) mR(3,2) mR(3,3) t(3) ; 0 0 0 1];
+    m = [cos(theta) -sin(theta)*cos(alphm) sin(theta)*cos(alphm)  a*cos(theta);...
+        sin(theta) cos(theta)*cos(alphm) -cos(theta)*sin(alphm)  a*sin(theta);...
+        0  sin(alphm)  cos(alphm) d;...
+        0 0 0 1];
     
 end
 
